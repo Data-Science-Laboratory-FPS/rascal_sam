@@ -1,0 +1,23 @@
+# Core deep learning
+torch==2.7.1
+torchvision==0.22.1
+torchxrayvision==1.4.0
+
+# Data processing
+numpy==2.0.2
+pandas==2.3.0
+Pillow==11.2.1
+
+# Machine learning
+scikit-learn==1.6.1
+
+# Computer vision
+opencv-python==4.11.0
+
+# Visualisation
+matplotlib==3.9.4
+seaborn==0.13.2
+
+# Utilities
+tqdm
+scipy
