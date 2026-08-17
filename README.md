@@ -113,6 +113,7 @@ Images and clinical files are not included in this repository due to size and da
 **1. Download the dataset from:** <https://www.hmhospitales.com/coronavirus/covid-data-save-lives>
 
 **2. Place the files in the project folder with this structure:**
+```
 project_folder/
 │
 ├── Segmented_images/
@@ -137,6 +138,8 @@ project_folder/
 ├── 03_run_experiments.ipynb
 ├── 04_comparative_metrics.ipynb
 └── 05_gradcam.ipynb
+```
+
 
 **3. Run the notebooks in order starting from** `00_dataset_preparation.ipynb`.
 The three clinical files (`COVID_DSL_01.CSV`, `CDSL_01.csv`, `01.csv`) are required to reconstruct the 30-day mortality label, as the imaging manifest (`cxr_discharge_info.csv`) does not include discharge dates.
