@@ -89,7 +89,7 @@ Run the notebooks in order:
 00 → 01 → 02 → 03 → 04 → 05
 ```
 
-Each notebook reads the outputs of the previous one. The shared pipeline functions are imported from `core_pipeline_v3.py`.
+Each notebook reads the outputs of the previous one. The shared pipeline functions are imported from `core_pipeline.py`.
 
 ---
 
@@ -106,12 +106,47 @@ This work builds upon:
 
 ---
 
+## Data Setup
+
+Images and clinical files are not included in this repository due to size and data governance constraints. To reproduce the classification pipeline, download the required files from the Covid Data Save Lives repository and organise them as follows:
+
+**1. Download the dataset from:** <https://www.hmhospitales.com/coronavirus/covid-data-save-lives>
+
+**2. Place the files in the project folder with this structure:**
+project_folder/
+│
+├── Segmented_images/
+│   ├── Segmented_images/
+│   │   ├── 1_Experts/        ← expert bounding box segmentations (.jpg)
+│   │   ├── 2_SAM_bboxs/      ← SAM bounding box segmentations (.jpg)
+│   │   └── 3_SAM_masks/      ← SAM pixel-level mask segmentations (.jpg)
+│   │
+│   └── discharge_info_cdsl/
+│       ├── cxr_discharge_info.csv          ← imaging manifest with outcomes
+│       ├── 19_04_2021/
+│       │   └── COVID_DSL_01.CSV            ← clinical file (batch 1)
+│       ├── 20_07_2020/
+│       │   └── CDSL_01.csv                 ← clinical file (batch 2)
+│       └── 24_04_2020/
+│           └── 01.csv                      ← clinical file (batch 3)
+│
+├── core_pipeline_v3.py
+├── 00_dataset_preparation.ipynb
+├── 01_data_organisation.ipynb
+├── 02_core_pipeline.ipynb
+├── 03_run_experiments.ipynb
+├── 04_comparative_metrics.ipynb
+└── 05_gradcam.ipynb
+
+**3. Run the notebooks in order starting from** `00_dataset_preparation.ipynb`.
+The three clinical files (`COVID_DSL_01.CSV`, `CDSL_01.csv`, `01.csv`) are required to reconstruct the 30-day mortality label, as the imaging manifest (`cxr_discharge_info.csv`) does not include discharge dates.
+
+---
+
 ## Data Availability
 
-The Covid Data Save Lives dataset is openly available at:
-https://www.hmhospitales.com/coronavirus/covid-data-save-lives
+The Covid Data Save Lives dataset is openly available at: <https://www.hmhospitales.com/coronavirus/covid-data-save-lives>
 
-Clinical data files used for record linkage are available within the same repository.
 Images are not included in this repository due to size constraints.
 
 ---
